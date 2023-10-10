@@ -18,6 +18,8 @@ const data = [
   { name: "02/10", Entrada: 10, Saída: 8 },
   { name: "03/10", Entrada: 13, Saída: 11 },
   { name: "04/10", Entrada: 12, Saída: 10 },
+  { name: "10/10", Entrada: 9, Saída: 0 },
+
   
 ];
 
@@ -40,6 +42,9 @@ const UniformsPage = () => {
           <h2 className="mt-4 text-2xl leading-tight font-medium text-gray-100">
             Observação quantitativa de vestimentas diárias de alunos
           </h2>
+          <p className="mt-4 text-2xl leading-tight font-medium text-cyan-200">
+            Amostras aleatórias diárias excluindo alunos do 9º ano
+          </p>
           <div className="mt-6 w-7/10 mx-auto">
             {data.map((item, index) => (
               <Accordion
