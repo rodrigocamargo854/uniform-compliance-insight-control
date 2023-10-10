@@ -50,7 +50,7 @@ const UniformsPage = () => {
               <Accordion
               key={index}
                 title={item.name}
-                observationTime={15}
+                observationTime={6}
                 numberOfChildrenWithout={item.Entrada}
                 date={convertToDate(item.name)}
                 numberOfChildrenWin={item.Saída}
