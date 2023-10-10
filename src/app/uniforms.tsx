@@ -18,8 +18,7 @@ const data = [
   { name: "02/10", Entrada: 10, Saída: 8 },
   { name: "03/10", Entrada: 13, Saída: 11 },
   { name: "04/10", Entrada: 12, Saída: 10 },
-  { name: "05/10", Entrada: 8, Saída: 7 },
-  { name: "06/10", Entrada: 10, Saída: 8 },
+  
 ];
 
 const convertToDate = (str : string) => {
