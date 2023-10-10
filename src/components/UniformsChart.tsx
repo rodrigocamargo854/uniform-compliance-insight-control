@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 type DataProps = {
   name: string;
@@ -34,20 +34,19 @@ const data = [
   const UniformsChart = ({data}:UniformsChartProps) => {
     return (
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart
-          data={data}
-          margin={{
-            top: 20, right: 30, left: 20, bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="Entrada" fill="#8884d8" />
-          <Bar dataKey="Saída" fill="#82ca9d" />
-        </BarChart>
+        <AreaChart
+      width={500}
+      height={400}
+      data={data}
+      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Area type="monotone" dataKey="Entrada" stackId="1" stroke="#8884d8" fill="#8884d8" />
+      <Area type="monotone" dataKey="Saída" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+    </AreaChart>
       </ResponsiveContainer>
     );
   };

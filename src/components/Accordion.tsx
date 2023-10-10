@@ -3,11 +3,11 @@
 import { useState } from 'react';
 
 interface AccordionProps {
-  title: string;
+  title?: string;
   observationTime: number;
   numberOfChildrenWithout: number;
   numberOfChildrenWin:number
-  date: Date; // Propriedade para a data
+  date?: Date; // Propriedade para a data
 }
 
 // Função para formatar a data
@@ -31,7 +31,6 @@ const Accordion: React.FC<AccordionProps> = ({ title, observationTime, numberOfC
       </div>
       {isOpen && (
         <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-40' : 'max-h-0'} text-left`}>
-          <p className="mt-4 text-cyan-100">Data: {formatDate(date)}</p> {/* Usando a data passada como prop */}
           <p className='text-cyan-200'>Tempo de observação: {observationTime} minutos</p>
           <p className='text-red-500'>Sem Uniforme na entrada {numberOfChildrenWithout}</p>
           <p className='text-red-500'>Sem Uniforme na Saida {numberOfChildrenWin}</p>

@@ -22,6 +22,12 @@ const data = [
   { name: "06/10", Entrada: 10, Saída: 8 },
 ];
 
+const convertToDate = (str : string) => {
+  const [day, month] = str.split("/");
+  const year = new Date().getFullYear(); // assume o ano atual
+  return new Date(`${year}-${month}-${day}`);
+};
+
 const filteredData = data.map((item) => ({
   name: item.name,
   Entrada: item.Entrada,
@@ -42,7 +48,7 @@ const UniformsPage = () => {
                 title={item.name}
                 observationTime={15}
                 numberOfChildrenWithout={item.Entrada}
-                date={new Date("2023-09-14")}
+                date={convertToDate(item.name)}
                 numberOfChildrenWin={item.Saída}
               />
             ))}
