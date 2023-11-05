@@ -20,11 +20,17 @@ const data = [
   { name: "04/10", Entrada: 12, Saída: 10 },
   { name: "10/10", Entrada: 9, Saída: 9 },
   { name: "11/10", Entrada: 12, Saída: 12 },
-
-  
+  { name: "20/10", Entrada: 12, Saída: 10 },
+  { name: "23/10", Entrada: 10, Saída: 8 },
+  { name: "24/10", Entrada: 12, Saída: 10 },
+  { name: "25/10", Entrada: 10, Saída: 8 },
+  { name: "26/10", Entrada: 12, Saída: 10 },
+  { name: "27/10", Entrada: 10, Saída: 8 },
+  { name: "30/10", Entrada: 12, Saída: 10 },
+  { name: "31/10", Entrada: 10, Saída: 8 },
 ];
 
-const convertToDate = (str : string) => {
+const convertToDate = (str: string) => {
   const [day, month] = str.split("/");
   const year = new Date().getFullYear(); // assume o ano atual
   return new Date(`${year}-${month}-${day}`);
@@ -49,7 +55,7 @@ const UniformsPage = () => {
           <div className="mt-6 w-7/10 mx-auto">
             {data.map((item, index) => (
               <Accordion
-              key={index}
+                key={index}
                 title={item.name}
                 observationTime={6}
                 numberOfChildrenWithout={item.Entrada}
@@ -62,33 +68,32 @@ const UniformsPage = () => {
           <UniformsChart data={filteredData} />
         </div>
         <div className="bg-gray-800 p-6">
-        <div className="bg-gray-800 p-6">
-  <h2 className="text-2xl text-white mb-4">Análise da Conformidade do Uniforme</h2>
-  <div className="divide-y divide-gray-700">
-    {[
-      "Inconsistência na Aplicação: Empresas ou indivíduos terceirizados podem não estar tão familiarizados com as políticas da escola ou podem interpretá-las de maneira diferente.",
-      "Frequência das Inspeções: Se as inspeções terceirizadas ocorrerem em dias ou horários específicos, isso pode explicar por que há dias com maior conformidade.",
-      "Inconsistência no Cumprimento das Regras: A variação observada sugere que a regra do uniforme não é consistentemente aplicada ou que há exceções.",
-      "Possíveis Exceções ou Falhas no Controle: A diferença nos números sugere que pode haver momentos em que a regra do uniforme é mais rigorosamente aplicada.",
-      "Cultura e Comportamento dos Alunos: A variação também pode ser influenciada pelo comportamento dos próprios alunos.",
-      "Necessidade de Investigação Adicional: Seria útil investigar mais a fundo para entender completamente a situação.",
-      "Aplicação Seletiva da Regra: Em algumas ocasiões, a regra do uniforme foi foi aplicada de forma seletiva para determinados alunos por motivos desconhecidos, enquanto para outros foi menos rigorosa.",
-      
-    ].map((text, index) => (
-      <details key={index} className="mb-4">
-        <summary className="text-white text-lg cursor-pointer hover:underline">
-          {text.split(":")[0]}
-        </summary>
-        <p className="text-white text-sm mt-2 pl-4">
-          {text.split(":")[1]}
-        </p>
-      </details>
-    ))}
-  </div>
-</div>
-
-</div>
-
+          <div className="bg-gray-800 p-6">
+            <h2 className="text-2xl text-white mb-4">
+              Análise da Conformidade do Uniforme
+            </h2>
+            <div className="divide-y divide-gray-700">
+              {[
+                "Inconsistência na Aplicação: Empresas ou indivíduos terceirizados podem não estar tão familiarizados com as políticas da escola ou podem interpretá-las de maneira diferente.",
+                "Frequência das Inspeções: Se as inspeções terceirizadas ocorrerem em dias ou horários específicos, isso pode explicar por que há dias com maior conformidade.",
+                "Inconsistência no Cumprimento das Regras: A variação observada sugere que a regra do uniforme não é consistentemente aplicada ou que há exceções.",
+                "Possíveis Exceções ou Falhas no Controle: A diferença nos números sugere que pode haver momentos em que a regra do uniforme é mais rigorosamente aplicada.",
+                "Cultura e Comportamento dos Alunos: A variação também pode ser influenciada pelo comportamento dos próprios alunos.",
+                "Necessidade de Investigação Adicional: Seria útil investigar mais a fundo para entender completamente a situação.",
+                "Aplicação Seletiva da Regra: Em algumas ocasiões, a regra do uniforme foi aplicada de forma seletiva para determinados alunos por motivos desconhecidos, enquanto para outros foi menos rigorosa.",
+              ].map((text, index) => (
+                <details key={index} className="mb-4">
+                  <summary className="text-white text-lg cursor-pointer hover:underline">
+                    {text.split(":")[0]}
+                  </summary>
+                  <p className="text-white text-sm mt-2 pl-4">
+                    {text.split(":")[1]}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

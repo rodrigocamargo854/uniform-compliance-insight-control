@@ -31,21 +31,21 @@ const data = [
   ];
 
   const UniformsChart = ({data}:UniformsChartProps) => {
+    const modifiedData = data.map(item => ({
+      ...item,
+      'Sem Uniforme': item.Entrada - item.Saída,
+    }));
     return (
       <ResponsiveContainer width="100%" height={300}>
-      <LineChart
-  width={500}
-  height={400}
-  data={data}
-  margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
->
-  <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="name" />
-  <YAxis />
-  <Tooltip />
-  <Line type="monotone" dataKey="Entrada" stroke="#8884d8" />
-  <Line type="monotone" dataKey="Saída" stroke="#f50606" />
-</LineChart>
+    <BarChart data={modifiedData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Bar dataKey="Entrada" stackId="a" fill="#8884d8" />
+        <Bar dataKey="Sem Uniforme" stackId="a" fill="#82ca9d" />
+      </BarChart>
       </ResponsiveContainer>
     );
   };
