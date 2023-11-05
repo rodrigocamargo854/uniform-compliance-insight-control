@@ -19,6 +19,7 @@ const data = [
   { name: "03/10", Entrada: 13, Saída: 11 },
   { name: "04/10", Entrada: 12, Saída: 10 },
   { name: "10/10", Entrada: 9, Saída: 9 },
+  { name: "11/10", Entrada: 12, Saída: 12 },
 
   
 ];
